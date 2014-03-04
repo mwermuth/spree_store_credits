@@ -1,7 +1,7 @@
 <% if @user.has_store_credit? %>
   <h3><%= Spree.t("store_credits") %></h3>
   <p>
-  <%= Spree.t('current_store_credit') %>: <strong><%= number_to_currency @user.store_credits_total %></strong>
+  <%= Spree.t('current_store_credit') %>: <strong><%= Spree::Money.new(@user.store_credits_total)) %></strong>
   </p>
   <% if @orders_with_store_credit.present? %>
   <h3><%= Spree.t('orders_with_store_credit') %></h3>
